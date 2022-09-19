@@ -25,4 +25,8 @@
         android:icon="@drawable/background_dim"
         android:title="@string/background_dim_title"
         />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="switch_favesOnly"
+        android:title="Show Faves only" />
 </PreferenceScreen>

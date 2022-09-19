@@ -164,6 +164,13 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("NotifyDataSetChanged")
     private fun updateApps(all: Boolean) {
+        val sh = getSharedPreferences(packageName + "_preferences", MODE_PRIVATE)
+        var favesOnly:Boolean = false
+        if (all) {
+            favesOnly = !sh.getBoolean("switch_favesOnly", false)
+        }
+        val all = favesOnly
+
         thread {
             appDataLock.lock()
             var favs = favoriteDb.favorites().getAllFavorites()
